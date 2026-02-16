@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mi web</title>
+  <style>
+    body { font-family: Arial; }
+    .menu a { color:#bdbdbd; text-decoration:none; margin-right:10px; } /* poco contraste */
+    .btn { background:#cfcfcf; padding:10px; display:inline-block; cursor:pointer; } /* no es botón real */
+    input { padding:8px; width:250px; }
+  </style>
+</head>
+<body>
+
+  <div class="menu">
+    <a href="#inicio">Inicio</a>
+    <a href="#contacto">Click aquí</a>
+  </div>
+
+  <div id="inicio">
+    <div style="font-size:18px; font-weight:bold;">Bienvenido</div>
+    <img src="https://via.placeholder.com/600x200">
+    <p style="color:#bdbdbd;">
+      Esta es una web de prueba con poco contraste y estructura pobre.
+    </p>
+
+    <div class="btn" onclick="alert('ok')">Enviar</div>
+  </div>
+
+  <div id="contacto">
+    <p>Contacto</p>
+    <form>
+      <input type="text" placeholder="Nombre">
+      <br><br>
+      <input type="text" placeholder="Email">
+      <br><br>
+      <input type="text" placeholder="Mensaje">
+      <br><br>
+      <div class="btn">Enviar formulario</div>
+    </form>
+  </div>
+
+</body>
+</html>
