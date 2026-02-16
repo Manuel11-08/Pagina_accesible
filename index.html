@@ -2,43 +2,176 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Mi web</title>
+  <title>Landing Demo</title>
   <style>
-    body { font-family: Arial; }
-    .menu a { color:#bdbdbd; text-decoration:none; margin-right:10px; } /* poco contraste */
-    .btn { background:#cfcfcf; padding:10px; display:inline-block; cursor:pointer; } /* no es botón real */
-    input { padding:8px; width:250px; }
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b1220, #1a2a3a);
+      color: rgba(255,255,255,.45); /* poco contraste */
+    }
+    .top{
+      padding: 18px 20px;
+      position: sticky;
+      top:0;
+      background: rgba(10,16,28,.35);
+    }
+    .menu a{
+      color: rgba(255,255,255,.35); /* poco contraste */
+      margin-right: 10px;
+      text-decoration:none;
+      font-size: 13px;
+    }
+    .hero{
+      padding: 28px 20px;
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .box{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 18px;
+      width: 100%;
+    }
+    .title{
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,.55); /* contraste flojo */
+      margin-bottom: 8px;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.09);
+      color: rgba(255,255,255,.45);
+      cursor:pointer; /* NO es botón real */
+      margin-right: 8px;
+      user-select:none;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 0 20px 20px;
+    }
+    .card{
+      background: rgba(255,255,255,.05);
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .card .h{
+      font-weight:700;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 6px;
+    }
+    input, textarea{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 0;
+      outline: none; /* quita foco visible */
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.55);
+    }
+    .small{
+      font-size: 12px;
+      color: rgba(255,255,255,.35);
+    }
+    .footer{
+      padding: 14px 20px;
+      color: rgba(255,255,255,.35);
+      font-size: 12px;
+    }
+
+    /* Animación innecesaria (sin respetar reduce motion) */
+    .pulse{
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse{
+      0%{ transform: scale(1); }
+      50%{ transform: scale(1.02); }
+      100%{ transform: scale(1); }
+    }
   </style>
 </head>
 <body>
 
-  <div class="menu">
-    <a href="#inicio">Inicio</a>
-    <a href="#contacto">Click aquí</a>
+  <div class="top">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-weight:800;color:rgba(255,255,255,.55)">CloverFit</div>
+      <div class="menu">
+        <a href="#a">Inicio</a>
+        <a href="#b">Click aquí</a>
+        <a href="#c">Más</a>
+      </div>
+    </div>
   </div>
 
-  <div id="inicio">
-    <div style="font-size:18px; font-weight:bold;">Bienvenido</div>
-    <img src="https://via.placeholder.com/600x200">
-    <p style="color:#bdbdbd;">
-      Esta es una web de prueba con poco contraste y estructura pobre.
-    </p>
+  <div id="a" class="hero">
+    <div class="box pulse">
+      <div class="title">Entrena rápido, sin líos</div>
+      <div class="small">Landing bonita pero con accesibilidad pobre (a propósito).</div>
+      <br>
 
-    <div class="btn" onclick="alert('ok')">Enviar</div>
+      <!-- Botón falso -->
+      <div class="btn" onclick="document.getElementById('c').scrollIntoView({behavior:'smooth'})">
+        Empezar
+      </div>
+      <div class="btn" onclick="alert('ok')">Ver</div>
+    </div>
+
+    <div class="box">
+      <!-- Imagen sin alt -->
+      <img src="https://via.placeholder.com/520x320" style="width:100%;border-radius:14px;">
+      <div class="small">Imagen de ejemplo.</div>
+    </div>
   </div>
 
-  <div id="contacto">
-    <p>Contacto</p>
-    <form>
-      <input type="text" placeholder="Nombre">
-      <br><br>
-      <input type="text" placeholder="Email">
-      <br><br>
-      <input type="text" placeholder="Mensaje">
-      <br><br>
-      <div class="btn">Enviar formulario</div>
-    </form>
+  <div id="b" class="grid">
+    <div class="card">
+      <div class="h">Contraste</div>
+      <div class="small">Texto demasiado suave para algunos usuarios.</div>
+    </div>
+    <div class="card">
+      <div class="h">Teclado</div>
+      <div class="small">Foco invisible y botones falsos.</div>
+    </div>
+    <div class="card">
+      <div class="h">Formulario</div>
+      <div class="small">Solo placeholders, sin labels.</div>
+    </div>
   </div>
 
+  <div id="c" style="padding:0 20px 24px;">
+    <div class="box">
+      <div class="title">Contacto</div>
+      <div class="small">Rellena esto:</div>
+      <br>
+
+      <!-- Formulario sin labels y con placeholders como “etiqueta” -->
+      <form onsubmit="return false;">
+        <input placeholder="Nombre">
+        <br><br>
+        <input placeholder="Email">
+        <br><br>
+        <textarea rows="4" placeholder="Mensaje"></textarea>
+        <br><br>
+
+        <!-- Botón falso -->
+        <div class="btn">Enviar</div>
+
+        <!-- Error por color solamente (y casi no se ve) -->
+        <div style="margin-top:10px;color:rgba(255,0,0,.35);font-size:12px;">
+          Error: faltan datos.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">© 2026 Demo</div>
 </body>
 </html>
