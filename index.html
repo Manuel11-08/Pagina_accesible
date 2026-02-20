@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landing Demo</title>
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b1220, #1a2a3a);
+      color: #ffffff;
+    }
+    .top{
+      padding: 18px 20px;
+      position: sticky;
+      top:0;
+      background: rgba(10,16,28,.85);
+    }
+    .menu a{
+      color: #ffffff;
+      margin-right: 10px;
+      text-decoration:none;
+      font-size: 16px;
+      padding: 8px;
+    }
+    .menu a:focus {
+      outline: 3px solid #ffbf47;
+    }
+    .hero{
+      padding: 28px 20px;
+      display:flex;
+      gap: 18px;
+      align-items:center;
+    }
+    .box{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      padding: 18px;
+      width: 100%;
+    }
+    .title{
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.20);
+      color: #ffffff;
+      cursor:pointer;
+      margin-right: 8px;
+      user-select:none;
+      text-align: center;
+    }
+    .btn:focus {
+      outline: 3px solid #ffbf47;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding: 0 20px 20px;
+    }
+    .card{
+      background: rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .card .h{
+      font-weight:700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    input, textarea{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid #ffffff;
+      outline: none;
+      background: rgba(255,255,255,.10);
+      color: #ffffff;
+    }
+    input:focus, textarea:focus {
+      border: 2px solid #ffbf47;
+    }
+    .small{
+      font-size: 12px;
+      color: rgba(255,255,255,.60);
+    }
+    .footer{
+      padding: 14px 20px;
+      color: rgba(255,255,255,.60);
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="top">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-weight:800;color:rgba(255,255,255,.90)">CloverFit</div>
+      <div class="menu">
+        <a href="#a" role="link" aria-label="Ir a la sección inicio">Inicio</a>
+        <a href="#b" role="link" aria-label="Ir a la sección de más información">Más</a>
+        <a href="#c" role="link" aria-label="Ir a la sección de contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="a" class="hero">
+    <div class="box">
+      <h1 class="title">Entrena rápido, sin líos</h1>
+      <p class="small">Landing accesible para todos los usuarios.</p>
+      
+      <button class="btn" onclick="document.getElementById('c').scrollIntoView({behavior:'smooth'})" aria-label="Empezar ahora">Empezar</button>
+      <button class="btn" onclick="alert('ok')" aria-label="Ver información adicional">Ver</button>
+    </div>
+
+    <div class="box">
+      <img src="https://via.placeholder.com/520x320" alt="Imagen de ejemplo" style="width:100%;border-radius:14px;">
+      <p class="small">Imagen de ejemplo.</p>
+    </div>
+  </div>
+
+  <div id="b" class="grid">
+    <div class="card">
+      <div class="h">Contraste</div>
+      <p class="small">Texto con mejor contraste para visibilidad.</p>
+    </div>
+    <div class="card">
+      <div class="h">Teclado</div>
+      <p class="small">Botones interactivos ahora con foco visible y accesibles para teclado.</p>
+    </div>
+    <div class="card">
+      <div class="h">Formulario</div>
+      <p class="small">Campos de formulario con etiquetas descriptivas para lectores de pantalla.</p>
+    </div>
+  </div>
+
+  <div id="c" style="padding:0 20px 24px;">
+    <div class="box">
+      <h2 class="title">Contacto</h2>
+      <p class="small">Rellena este formulario para contactarnos:</p>
+      
+      <form onsubmit="return false;">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" placeholder="Nombre" required aria-required="true">
+        <br><br>
+        
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" placeholder="Email" required aria-required="true">
+        <br><br>
+        
+        <label for="message">Mensaje</label>
+        <textarea id="message" rows="4" placeholder="Mensaje" required aria-required="true"></textarea>
+        <br><br>
+
+        <button class="btn" type="submit" aria-label="Enviar mensaje">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">© 2026 Demo</div>
+</body>
+</html>
